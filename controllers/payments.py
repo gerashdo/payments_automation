@@ -21,8 +21,6 @@ def create_xlsx_payments_file(db: Session):
 
     dataframe = create_payments_dataframe(payments)
 
-    print(dataframe)
-
     buffer = BytesIO()
     with pd.ExcelWriter(buffer) as writer:
         dataframe.to_excel(writer, index=False)
