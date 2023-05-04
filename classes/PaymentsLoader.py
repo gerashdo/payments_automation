@@ -40,12 +40,12 @@ class PaymentsLoader:
         if not all(self.dataframe['Cliente']):
             raise Exception('No todos los registros tienen un cliente')
 
-        validate_field_length(self.dataframe, 'Cliente', 10)
+        validate_field_length(self.dataframe, 'Cliente', 6)
 
         if not all(self.dataframe['Proveedor']):
             raise Exception('No todos los registros tienen un proveedor')
 
-        validate_field_length(self.dataframe, 'Proveedor', 5)
+        validate_field_length(self.dataframe, 'Proveedor', 4)
 
         if not all(self.dataframe['Monto']):
             raise Exception('No todos los registros tienen un monto')
