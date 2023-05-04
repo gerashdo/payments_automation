@@ -1,11 +1,19 @@
+import os
 import os.path
 from classes.PaymentsLoader import PaymentsLoader
 from classes.PaymentsLoaderService import PaymentsLoaderService
 
+os.system('clear')
 
 exists_file = False
 file_path = ''
 
+print('*' * 80 )
+print("""El archivo con la información a ser importada debe encontrarse 
+en el directorio "data/" a la altura de este script.""")
+print('*' * 80 )
+print('')
+      
 while (not exists_file):
     file_name = input('Escribe el nombre del archivo xlsx sin extensión: ')
     file_path = f"./data/{file_name}.xlsx"
