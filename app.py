@@ -10,6 +10,14 @@ ClientBase.metadata.create_all(bind=engine)
 ProviderBase.metadata.create_all(bind=engine)
 PaymentBase.metadata.create_all(bind=engine)
 
-app = FastAPI()
+app = FastAPI(
+    title="Payments API",
+    description='API for payments management.',
+    version="0.0.1",
+    openapi_tags=[{
+        "name": "payments",
+        "description": "Payments endpoints."
+    }]
+)
 
 app.include_router(payments)

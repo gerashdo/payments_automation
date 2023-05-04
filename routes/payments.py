@@ -20,13 +20,19 @@ def get_db():
         db.close()
 
 
-@payments.get("/payments/total", response_model=payment_schema.TotalPayments)
+@payments.get("/payments/total",
+              response_model=payment_schema.TotalPayments,
+              tags=['payments'],
+              description='Retrive the sum of all payments in the data base.')
 def get_total_payments(db: Session = Depends(get_db)):
     total = payments_controller.get_payments_total(db)
     return {"total": total}
 
 
-@payments.get("/payments/download", response_model=payment_schema.DownloadPayments)
+@payments.get("/payments/download",
+              response_model=payment_schema.DownloadPayments,
+              tags=['payments'],
+              description='Download all payments in an Excel file.')
 def download_payments_xlsx(db: Session = Depends(get_db)):
     file = payments_controller.create_xlsx_payments_file(db)
 
