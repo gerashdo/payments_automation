@@ -9,5 +9,3 @@ class Provider(Base):
     name = Column(String(255))
 
     payments = relationship("Payment", back_populates="provider")
-
-Base.metadata.create_all(bind=engine)

@@ -13,5 +13,3 @@ class Payment(Base):
 
     client = relationship("Client", back_populates="payments")
     provider = relationship("Provider", back_populates="payments")
-
-Base.metadata.create_all(bind=engine)
